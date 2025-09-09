@@ -56,9 +56,9 @@ int main(){
     cout<<"Enter a word: ";
     cin >> word;
 
-    cout<<"\n ===== EXERCISE ===="<<msg<<end1;
+    cout<<"\n ===== EXERCISE ===="<<msg<<endl;
     string word ="";
-    cout<<"Enter a word:"
+    cout<<"Enter a word:";
 
     // Print the 2nd character of the word
     cout<<"2nd character: "<<word[1]<<endl;
