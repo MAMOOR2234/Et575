@@ -3,154 +3,91 @@
 #include <string>
 using namespace std;
 
-// CLASS EXAMPLES: String Methods Demonstration
-void classExamples() {
-    cout << "=== CLASS EXAMPLES: STRING METHODS ===" << endl << endl;
-    
-    // Example 1: String declaration and input
-    cout << "1. String Declaration and Input:" << endl;
-    string greeting = "Hello World";
-    cout << "   String: " << greeting << endl;
-    cout << "   Length: " << greeting.length() << endl << endl;
-    
-    // Example 2: Character access
-    cout << "2. Character Access:" << endl;
-    cout << "   First character: " << greeting[0] << endl;
-    cout << "   Third character: " << greeting.at(2) << endl << endl;
-    
-    // Example 3: Substring operations
-    cout << "3. Substring Operations:" << endl;
-    string part = greeting.substr(0, 5); // Extract "Hello"
-    cout << "   Substring (0, 5): " << part << endl;
-    cout << "   Substring (6, 5): " << greeting.substr(6, 5) << endl << endl;
-    
-    // Example 4: String replacement
-    cout << "4. String Replacement:" << endl;
-    string original = "Programming";
-    string modified = original;
-    modified.replace(0, 4, "Code"); // Replace "Prog" with "Code"
-    cout << "   Original: " << original << endl;
-    cout << "   Modified: " << modified << endl << endl;
-    
-    // Example 5: String concatenation
-    cout << "5. String Concatenation:" << endl;
-    string first = "C++";
-    string second = " Programming";
-    string combined = first + second;
-    cout << "   Combined: " << combined << endl << endl;
-    
-    // Example 6: Find and erase operations
-    cout << "6. Find and Erase Operations:" << endl;
-    string sample = "Hello Programming World";
-    size_t pos = sample.find("Programming");
-    cout << "   Original: " << sample << endl;
-    cout << "   Found 'Programming' at position: " << pos << endl;
-    sample.erase(sample.length() - 6, 6); // Remove last 6 characters
-    cout << "   After removing last 6 chars: " << sample << endl << endl;
-    
-    cout << "=== END OF CLASS EXAMPLES ===" << endl << endl;
-}
-
-// LAB EXERCISE: Main program
-void labExercise() {
-    cout << "=== LAB EXERCISE ===" << endl << endl;
-    
-    string word;
-    
-    // Ask user to input a word
-    cout << "Please type a word from the keyboard: ";
-    cin >> word;
-    cout << endl;
-    
-    // Print the 2nd character of the word
-    char secondChar = ' ';
-    if (word.length() >= 2) {
-        secondChar = word[1]; // Index 1 is the 2nd character
-    }
-    cout << "2nd character:          " << secondChar << endl;
-    
-    // Find and print the length of the word
-    int wordLength = word.length();
-    cout << "word has:               " << wordLength << " characters" << endl;
-    
-    // Replace 2 characters from the 3rd character with "-- $ --"
-    string replaceWord = word;
-    if (word.length() >= 4) { // Need at least 4 characters to replace 2 from position 3
-        replaceWord.replace(2, 2, "-- $ --"); // Start at index 2 (3rd char), replace 2 chars
-    } else if (word.length() >= 3) { // If only 3 characters, replace 1 from position 3
-        replaceWord.replace(2, 1, "-- $ --");
-    }
-    cout << "Replace word:           " << replaceWord << endl;
-    
-    // Remove 3 characters from the end of the message
-    string removeEndWord = replaceWord; // Use the replaced word as input
-    if (replaceWord.length() >= 3) {
-        removeEndWord.erase(replaceWord.length() - 3, 3); // Remove last 3 characters
-    } else {
-        removeEndWord = ""; // If less than 3 characters, result is empty
-    }
-    cout << "Remove end characters:  " << removeEndWord << endl << endl;
-}
 
 int main() {
-    // Display class examples first
-    classExamples();
-    
-    // Execute lab exercise
-    labExercise();
-    
-    cout << "Program completed successfully!" << endl;
-    
+    // Activity 1: String manipulation
+    cout << "ACTIVITY 1: STRING MANIPULATION" << endl;
+    cout << "=================================" << endl;
+   
+    // Step 1: Initialize string variables
+    string welcome = "Welcome to ";
+    string city = "New York City";
+   
+    // Step 2: Collect name from keyboard
+    string name;
+    cout << "Please enter your name: ";
+    getline(cin, name);
+   
+    // Step 3: Concatenate strings
+    string concatenated = welcome + city + " " + name;
+   
+    // Step 4: Display concatenated string
+    cout << "Concatenated message: " << concatenated << endl;
+   
+    // Step 5: Find length of the string
+    int messageLength = concatenated.length();
+   
+    // Step 6: Find index of "ma"
+    int indexMa = concatenated.find("ma");
+   
+    // Step 7: Replace "ma" with "%---%"
+    string replacedString = concatenated;
+    if (indexMa != string::npos) {
+        replacedString.replace(indexMa, 2, "%---%");
+    }
+   
+    // Display results for Activity 1
+    cout << "\n------------------------------ RESULT ACTIVITY 1 ----------------------------" << endl;
+    cout << "concatenated message:\t" << concatenated << endl;
+    cout << "Message length:\t\t" << messageLength << endl;
+    cout << "Index of character 'ma':\t" << indexMa << endl;
+    cout << "Replace 'ma' with %---%:\t" << replacedString << endl;
+   
+    // Activity 2: Numerical calculations
+    cout << "\n\nACTIVITY 2: NUMERICAL CALCULATIONS" << endl;
+    cout << "====================================" << endl;
+   
+    // Step 1: Set constant pi
+    const float PI = 3.14159;
+   
+    // Step 2: Collect radius and height from keyboard
+    float radius, height;
+    cout << "Please enter the radius: ";
+    cin >> radius;
+    cout << "Please enter the height: ";
+    cin >> height;
+   
+    // Store original values for display
+    float originalRadius = radius;
+    float originalHeight = height;
+   
+    // Step 3: Check if radius is greater than height
+    bool radiusGreater = (radius > height);
+   
+    // Step 4: Check if radius is equal to height
+    bool radiusEqual = (radius == height);
+   
+    // Step 5: Triple the height and increase radius by 5
+    height *= 3;  // Triple the height
+    radius += 5;  // Increase radius by 5
+   
+    // Step 6: Check if radius is not equal to height AND greater than height
+    bool condition = (radius != height) && (radius > height);
+   
+    // Step 7: Calculate volume of the right cylinder
+    float volume = PI * pow(radius, 2) * height;
+   
+    // Display results for Activity 2
+    cout << "\n------------------------------ RESULT ACTIVITY 2 ----------------------------" << endl;
+    cout << "Step 3) Is the radius greater than height?\t\t\t" << radiusGreater << endl;
+    cout << "Step 4) Is the radius equal to height?\t\t\t\t" << radiusEqual << endl;
+    cout << fixed << setprecision(1);
+    cout << "Step 5) Triple height =\t\t\t\t\t" << height << "cm" << endl;
+    cout << "Step 5) Increased radius by 5 =\t\t\t\t" << radius << "cm" << endl;
+    cout << "Step 6) Is the radius not equal to and greater than height?\t" << condition << endl;
+    cout << fixed << setprecision(1);
+    cout << "Step 7) The volume of a right cylinder with radius " << radius << "cm and height " << height << "cm is = " << volume << "cm^3" << endl;
+   
     return 0;
 }
-
-/// Chatgbt answer 
-
-#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-    string word;
-    cout << "Type a word: ";
-    cin >> word;
-
-    // Print the 2nd character
-    cout << "2nd character:          " << word[1] << endl;
-
-    // Print length of the word
-    cout << "word has:               " << word.length() << " characters" << endl;
-
-    // Replace 2 characters from the 3rd character with "-- $ --"
-    string replacedWord = word;
-    if (replacedWord.length() >= 3) {
-        replacedWord.replace(2, 2, "-- $ --");
-    }
-    cout << "Replace word:           " << replacedWord << endl;
-
-    // Remove 3 characters from the end
-    string removedWord = word;
-    if (removedWord.length() > 3) {
-        removedWord.erase(removedWord.length() - 3);
-    }
-    cout << "Remove end characters:  " << removedWord << endl;
-
-    return 0;
-}
-
-/////////////
-
-//--- AI Assistant Used: ChatGPT ---
-// Was the code correct? (Yes)
-// Was it readable and properly commented?
- // Yes
-// Were you able to explain each line of code?
-  /// not really 
-// Did it use the same programming concepts we learned in class?
-  /// NO 
-// Terminal Output:Type a word: computer
-//2nd character:          o
-//word has:               8 characters
-//Replace word:           co-- $ --uter
-//Remove end characters:  compu
-
+	
