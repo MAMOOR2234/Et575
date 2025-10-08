@@ -70,7 +70,6 @@ int main() {
         cout<<endl;
         //print result
         cout<<"The total count of numbers that are multiples of 2 = "<<count_mult2<<endl;
-
         cout<<"\n----EXERCISE2---"<<endl;
         int user_num;
         cin >> user_num;
