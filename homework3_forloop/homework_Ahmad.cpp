@@ -54,7 +54,7 @@ int main()
     for(int day = 1; day <= num_days; day++){
         cout << "Enter sales figure for day " << day << ": $";
         cin >> daily_sales;
-        total_sales += daily_sales;  // Accumulate total sales
+        total_sales += daily_sales;  
     }
     
     // Calculate average sales

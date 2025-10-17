@@ -64,19 +64,19 @@ int main()
     
  cout << "\n---- Question 3: Graphing small letter r with # sign ----\n" << endl;
     
-    for (int row = 1; row <= dimension; row++) {
-        for (int col = 1; col <= dimension; col++) {
-
-            if ( (col == 3 && row >= 3) ||                
-                 (row == 3 && col >= 3 && col <= 6) ||     
-                 (col == 6 && (row == 4 || row == 5)) ||   
-                 (row == 6 && col == 5) ||                 
-                 (row == 7 && col == 4) ) {                
-                cout << "#";
+        cout << "--- Question 3 ---" << endl;
+        for(int row = 1; row <= dimension; row++) {
+            for(int col = 1; col <= dimension; col++) {
+                if((col == 4 && row >= 3) || 
+                   (row == 3 && col >= 5 && col <= 7) ||
+                   (col == 7 && row >= 4 && row <= 5)) {
+                    cout << "# ";    
+                } else {
+                    cout << ". ";    
+                }
             }
+            cout << endl;
         }
-        cout << "\n";
+    
+        return 0;
     }
-
-    return 0;
-}
