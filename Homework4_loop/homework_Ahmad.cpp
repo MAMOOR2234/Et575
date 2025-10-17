@@ -62,41 +62,21 @@ int main()
     }
     cout << endl;
     
-    cout << "\n---- Question 3: Graphing letter r with # sign ----\n" << endl;
+ cout << "\n---- Question 3: Graphing small letter r with # sign ----\n" << endl;
     
-    // Question 3: Graphing letter r with nested for loops
-    cout << "--- Question 3 ---" << endl;
-    
-    // Nested for loops to create the letter 'r'
-    for(int row = 1; row <= dimension; row++) {
-        for(int col = 1; col <= dimension; col++) {
-            // Create the shape of letter 'r'
-            if(col == 1) {
-                // Vertical stem
+    for (int row = 1; row <= dimension; row++) {
+        for (int col = 1; col <= dimension; col++) {
+
+            if ( (col == 3 && row >= 3) ||                
+                 (row == 3 && col >= 3 && col <= 6) ||     
+                 (col == 6 && (row == 4 || row == 5)) ||   
+                 (row == 6 && col == 5) ||                 
+                 (row == 7 && col == 4) ) {                
                 cout << "#";
-            }
-            else if(row == 1 && col <= dimension/2 + 1) {
-                // Top horizontal part
-                cout << "#";
-            }
-            else if(row == dimension/2 + 1 && col <= dimension/2 + 1) {
-                // Middle horizontal part
-                cout << "#";
-            }
-            else if(col == dimension/2 + 1 && row <= dimension/2 + 1) {
-                // Right vertical part
-                cout << "#";
-            }
-            else if(row > dimension/2 + 1 && col == row) {
-                // Diagonal part
-                cout << "#";
-            }
-            else {
-                cout << " ";
             }
         }
-        cout << endl;
+        cout << "\n";
     }
-    
+
     return 0;
 }
