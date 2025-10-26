@@ -76,7 +76,7 @@ void printnumber(string n){
     cout<<"The number is "<<n<<endl;
 }
 
-// example 8:function to check if a number is even
+// example 9:function to check if a number is even
 bool isEven(int number){
     if(number % 2 == 0){
         return true;
