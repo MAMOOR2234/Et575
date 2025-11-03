@@ -1,105 +1,114 @@
 /*
 Mamoor Ahmad
-Homework 5 – Functions
-Program 1: Wind chill calculation
+Homework 5 - Functions
+Program 1: Wind Chill Calculation
+Program 2: Descending Order Entries
 */
+
 #include <iostream>
 #include <cmath>
 using namespace std;
 
-// prototypes
-int speed();
-int temp();
-double windspeed(int v, int tem);
-void prompt_result(double value);
+// PROGRAM 1: WIND CHILL CALCULATION FUNCTIONS
 
-
-int speed(){
-    int s;
-    cout << "Enter wind speed (m/s, 1-99): ";
-    cin >> s;
-    while(s <= 0 || s >= 100){
-        cout << "Invalid. Enter wind speed (1-99): ";
-        cin >> s;
-    }
-    return s;
+// Function to get and validate wind speed
+int speed() {
+int windSpeed;
+do {
+cout << "Enter wind speed (positive number less than 100 m/s): ";
+cin >> windSpeed;
+if (windSpeed <= 0 || windSpeed >= 100) {
+cout << "Error: Wind speed must be positive and less than 100. Please try again." << endl;
+}
+} while (windSpeed <= 0 || windSpeed >= 100);
+return windSpeed;
 }
 
-int temp(){
-    int t;
-    cout << "Enter temperature (C, <=10 and >-90): ";
-    cin >> t;
-    while(t > 10 || t <= -90){
-        cout << "Invalid. Enter temperature (<=10 and >-90): ";
-        cin >> t;
-    }
-    return t;
+// Function to get and validate temperature
+float temp() {
+float temperature;
+do {
+cout << "Enter temperature (must be <= 10 and > -90 degrees Celsius): ";
+cin >> temperature;
+if (temperature > 10 || temperature <= -90) {
+cout << "Error: Temperature must be <= 10 and > -90. Please try again." << endl;
+}
+} while (temperature > 10 || temperature <= -90);
+return temperature;
 }
 
-double windspeed(int v, int tem){
-    return 33 - ((10*sqrt(v) - v + 10.5) * (33 - tem));
+// Function to calculate wind chill index
+float windspeed(int windSpeed, float temperature) {
+// Wind chill formula: 13.12 + 0.6215*t - 11.37*v^0.16 + 0.3965*t*v^0.16
+double windChill = 13.12 + 0.6215 * temperature - 11.37 * pow(windSpeed, 0.16)
++ 0.3965 * temperature * pow(windSpeed, 0.16);
+return windChill;
 }
 
-void prompt_result(double result){
-    cout << "The wind index is: " << result << endl;
+// Function to prompt the wind chill result
+void prompt_result(float windChill) {
+cout << "The wind index is: " << windChill << endl;
 }
 
-//  main for Program 1
-int main(){
-    int s = speed();
-    float t = temp();
-    prompt_result(windspeed(s,t));
-    return 0;
-}
-/*
-Program 2: Descending order entries
-*/
-#include <iostream>
-#include <cmath>
-using namespace std;
+// PROGRAM 2: DESCENDING ORDER FUNCTIONS
 
-
-int collectNumber();
-bool inOrder(int a, int b, int c);
-void runProgram(int n1, int n2, int n3, bool desc);
-
-
-int collectNumber(){
-    int x;
-    cout << "Enter a number: ";
-    cin >> x;
-    return x;
+// Function to collect a number from user
+int collectNumber() {
+int number;
+cout << "Enter a number: ";
+cin >> number;
+return number;
 }
 
-bool inOrder(int a, int b, int c){
-    return (a > b && b > c);
+// Function to check if numbers are in descending order
+bool inOrder(int num1, int num2, int num3) {
+return (num1 >= num2) && (num2 >= num3);
 }
 
-void runProgram(int n1, int n2, int n3, bool desc){
-    char again = 'y';
-    while(again == 'y' || again == 'Y'){
-        if(desc){
-            cout << "Numbers are in descending order." << endl;
-        } else {
-            cout << "Numbers are NOT in descending order." << endl;
-        }
-        cout << "Run again? (y/n): ";
-        cin >> again;
-        if(again == 'y' || again == 'Y'){
-            n1 = collectNumber();
-            n2 = collectNumber();
-            n3 = collectNumber();
-            desc = inOrder(n1,n2,n3);
-        }
-    }
+// Function to display result and ask if user wants to continue
+void runProgram(int num1, int num2, int num3, bool desc_order) {
+cout << "\nNumbers entered: " << num1 << ", " << num2 << ", " << num3 << endl;
+if (desc_order) {
+cout << "The numbers are in descending order." << endl;
+} else {
+cout << "The numbers are NOT in descending order." << endl;
 }
 
-//  main for Program 2
-int program2(){
-    int num1 = collectNumber();
-    int num2 = collectNumber();
-    int num3 = collectNumber();
-    bool desc_order = inOrder(num1,num2,num3);
-    runProgram(num1,num2,num3,desc_order);
-    return 0;
+char choice;
+cout << "\nDo you want to run the program again? (y/n): ";
+cin >> choice;
+
+if (choice == 'y' || choice == 'Y') {
+cout << "\n=== Running Program Again ===" << endl;
+// Recursive call to continue the program
+int newNum1 = collectNumber();
+int newNum2 = collectNumber();
+int newNum3 = collectNumber();
+bool newOrder = inOrder(newNum1, newNum2, newNum3);
+runProgram(newNum1, newNum2, newNum3, newOrder);
+} else {
+cout << "Program ended. Thank you!" << endl;
+}
+}
+
+// MAIN FUNCTION
+
+int main() {
+cout << "--- HOMEWORK 5 FUNCTIONS ---" << endl;
+
+// Program 1: Wind Chill Calculation
+cout << "\n ---- PROGRAM 1: WIND CHILL CALCULATION ---" << endl;
+int s = speed();
+float t = temp();
+prompt_result(windspeed(s, t));
+
+// Program 2: Descending Order Check
+cout << "\n --- PROGRAM 2: DESCENDING ORDER CHECK ---" << endl;
+int num1 = collectNumber();
+int num2 = collectNumber();
+int num3 = collectNumber();
+bool desc_order = inOrder(num1, num2, num3);
+runProgram(num1, num2, num3, desc_order);
+
+return 0;
 }
