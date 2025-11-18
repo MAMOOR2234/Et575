@@ -70,7 +70,24 @@ void printresult(int resultsearch, int target){
 }
 //Exercise
 // function that return the sum of all ecen numberas in an array
-
+int sum_even_numbers(const int *arr, int sizearray){
+    int sum = 0;
+    for (int i = 0; i < sizearray; i++){
+        if (arr[i] % 2 == 0){
+            sum += arr[i];
+        }
+    }
+    return sum;
+}
 
 // function that return the cout all negative numbers in an array
+int count_negative_numbers(const int *arr, int sizearray){
+    int count = 0;
+    for (int i = 0; i < sizearray; i++){
+        if (arr[i] < 0){
+            count++;
+        }
+    }
+    return count;
+}
 

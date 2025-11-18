@@ -35,6 +35,17 @@ int main(){
    cout<<"\n ----- EXERCISE -----"<<endl;
    // initalize varables and array
    int arr_number[] = {6, -10, 9, 12, -3, -8, 5, 7, 4, 4, 0};
+   int size_arr_number = 11;
+
+   // print the array
+   cout<< "Array: ";
+   printarray(size_arr_number, arr_number);
+   // call function for exercise 
+  int even_sum = sum_even_numbers(arr_number, size_arr_number);
+    cout<<"Sum of even numbers in the array: "<< even_sum << endl;
+
+  int negative_count = count_negative_numbers(arr_number, size_arr_number);
+    cout<<"Count of negative numbers in the array: "<< negative_count << endl;
 
     return 0;
 }
