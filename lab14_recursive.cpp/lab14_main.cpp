@@ -5,7 +5,7 @@ lab 14 recursive
 */
 
 #include <iostream>
-#include "lab14_function.cpp"
+#include "lab14_function1.cpp"
 using namespace std;
 
 
