@@ -28,16 +28,7 @@ int main(){
     createFile();
     // Append messages to the file
     appendToFile("This is the first appended line.");
-    appendToFile("This is the second appended line.");
-    // Read and display the file content
-    cout << "\n Data_user.txt:\n";
-    ifstream fin;
-    fin.open("data_user.txt");
-    string line;
-    while (getline(fin, line)) {
-        cout << line << endl;
-    }
-    fin.close();
+   readFile("data_user.txt");
    
     return 0;
 }
