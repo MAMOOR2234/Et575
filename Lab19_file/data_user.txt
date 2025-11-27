@@ -1,3 +1,2 @@
 This is my output file – Mamoor Ahmad.
 This is the first appended line.
-This is the second appended line.
